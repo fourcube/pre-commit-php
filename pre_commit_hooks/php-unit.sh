@@ -42,7 +42,7 @@ fi
 
 echo "Running command $phpunit_command"
 command_result=`eval $phpunit_command`
-if [[ $command_result =~ FAILURES ]]
+if [[ $command_result =~ ERRORS ]]
 then
     echo "Failures detected in unit tests..."
     echo "$command_result"
