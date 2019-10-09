@@ -57,7 +57,7 @@ A systems hook that just runs `php -l` against stage files that have the `.php` 
 
 A bash script that will run the appropriate phpunit executable. It will assume
 
-  - Find the executable to run at either `vendor/bin/phpunit`, `phpunit` or `php phpunit.phar` (in that exact order).
+  - Find the executable to run at either `dev-tools/vendor/bin/phpunit`, `vendor/bin/phpunit`, `phpunit` or `php phpunit.phar` (in that exact order).
   - There is already a `phpunit.xml` in the root of the repo
 
 Note in its current state, it will run the whole PHPUnit test as along as `.php` file was committed.
@@ -75,7 +75,7 @@ Note in its current state, it will run the whole PHPUnit test as along as `.php`
 
 Similar pattern as the php-unit hook. A bash script that will run the appropriate [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) executable.
 
-It will assume that there is a valid PHP Code Sniffer executable at these locations, `vendor/bin/phpcs`, `phpcs` or `php phpcs.phar` (in that exact order).
+It will assume that there is a valid PHP Code Sniffer executable at these locations, `dev-tools/vendor/bin/phpcs`, `vendor/bin/phpcs`, `phpcs` or `php phpcs.phar` (in that exact order).
 
 The `args` property in your hook declaration can be used for pass any valid PHP Code Sniffer arguments. In the example above, it will run PHP Code Sniffer against only the staged php files with the `PSR-1` and progress enabled.
 
@@ -93,7 +93,7 @@ If you have multiple standards or a comma in your `args` property, escape the co
 ```
 Similar pattern as the php-cs hook. A bash script that will run the appropriate [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) executable and will try to fix errors if it can using phpcbf.
 
-It will assume that there is a valid PHP Code Beautifier and Fixer executable at these locations, `vendor/bin/phpcbf`, `phpcbf` or `php phpcbf.phar` (in that exact order).
+It will assume that there is a valid PHP Code Beautifier and Fixer executable at these locations, `dev-tools/vendor/bin/phpcbf`, `vendor/bin/phpcbf`, `phpcbf` or `php phpcbf.phar` (in that exact order).
 
 The `args` property in your hook declaration can be used for pass any valid PHP Code Sniffer arguments. In the example above, it will run PHP Code Sniffer against only the staged php files with the `PSR-1` and progress enabled.
 
