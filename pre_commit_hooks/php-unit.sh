@@ -24,11 +24,14 @@ phpunit_command="php $phpunit_local_exec"
 
 # Check vendor/bin/phpunit
 phpunit_vendor_command="vendor/bin/phpunit"
+phpunit_devtools_vendor_command="dev-tools/vendor/bin/phpunit"
 phpunit_global_command="phpunit"
 if [ -f "$phpunit_vendor_command" ]; then
 	phpunit_command=$phpunit_vendor_command
 else
-    if hash phpunit 2>/dev/null; then
+    if [ -f "$phpunit_devtools_vendor_command" ]; then
+        phpcs_command=$phpunit_devtools_vendor_command
+    elif hash phpunit 2>/dev/null; then
         phpunit_command=$phpunit_global_command
     else
         if [ -f "$phpunit_local_exec" ]; then

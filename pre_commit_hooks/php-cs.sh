@@ -25,11 +25,14 @@ phpcs_command="php $phpcs_local_exec"
 
 # Check vendor/bin/phpunit
 phpcs_vendor_command="vendor/bin/phpcs"
+phpcs_devtools_vendor_command="dev-tools/vendor/bin/phpcs"
 phpcs_global_command="phpcs"
 if [ -f "$phpcs_vendor_command" ]; then
 	phpcs_command=$phpcs_vendor_command
 else
-    if hash phpcs 2>/dev/null; then
+    if [ -f "$phpcs_devtools_vendor_command" ]; then
+        phpcs_command=$phpcs_devtools_vendor_command
+    elif hash phpcs 2>/dev/null; then
         phpcs_command=$phpcs_global_command
     else
         if [ -f "$phpcs_local_exec" ]; then
